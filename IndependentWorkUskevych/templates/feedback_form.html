@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback form</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+<center><h1>Leave your feedback</h1></center>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label }}
+            {{ form.name(class="form") }}
+        </div>
+        <div>
+            {{ form.comment.label }}
+            {{ form.comment(class="form") }}
+        </div>
+        <button type="submit">Send</button>
+    </form>
+
+    <h2>All feedbacks:</h2>
+    <ul>
+        {% for feedback in feedbacks %}
+            <li><strong>{{ feedback.name }}</strong>: {{ feedback.comment }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
