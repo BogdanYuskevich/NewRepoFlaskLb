@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+
+
+    <h1>Welcome, {{ user_info.username }}!</h1>
+    <p>Username: {{ user_info.username }}</p>
+    <p>Password: {{ user_info.password }}</p>
+
+
+
+    <form method="post" action="{{ url_for('add_cookie') }}">
+        {{ add_cookie_form.csrf_token }}
+        {{ add_cookie_form.hidden_tag() }}
+
+        <label for="{{ add_cookie_form.cookie_key.id }}">Key:</label>
+        {{ add_cookie_form.cookie_key() }}
+
+        <label for="{{ add_cookie_form.cookie_value.id }}">Value:</label>
+        {{ add_cookie_form.cookie_value() }}
+
+        <label for="{{ add_cookie_form.cookie_expiry.id }}">Expiry (seconds):</label>
+        {{ add_cookie_form.cookie_expiry() }}
+
+        <button type="submit">Add Cookie</button>
+    </form>
+
+
+
+    <form method="post" action="{{ url_for('delete_cookie') }}">
+        {{ delete_cookie_form.csrf_token }}
+        {{ delete_cookie_form.hidden_tag() }}
+
+        <label for="{{ delete_cookie_form.delete_cookie_key.id }}">Delete Cookie (Key):</label>
+        {{ delete_cookie_form.delete_cookie_key() }}
+
+        <button type="submit">Delete Cookie</button>
+    </form>
+
+
+
+    <form method="post" action="{{ url_for('delete_all_cookies') }}">
+        {{ delete_all_cookies_form.csrf_token }}
+        {{ delete_all_cookies_form.hidden_tag() }}
+
+        <button type="submit">Delete All Cookies</button>
+    </form>
+
+
+
+    <table border="1">
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Expiry</th>
+            <th>Creation Time</th>
+        </tr>
+        {% for cookie in cookies %}
+        <tr>
+            <td>{{ cookie.key }}</td>
+            <td>{{ cookie.value }}</td>
+            <td>{{ cookie.expiry }}</td>
+            <td>{{ cookie.creation_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+
+    <form method="post" action="{{ url_for('logout') }}">
+        <button type="submit">Logout</button>
+    </form>
+
+
+
+    <h3>Change Password</h3>
+    <form method="post" action="{{ url_for('change_password') }}">
+        {{ change_password_form.csrf_token }}
+        {{ change_password_form.hidden_tag() }}
+
+        <label for="{{ change_password_form.new_password.id }}">New Password:</label>
+        {{ change_password_form.new_password() }}
+
+        <button type="submit">Change Password</button>
+    </form>
+
+</body>
+</html>

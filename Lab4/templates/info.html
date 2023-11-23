@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<h1>Welcome, {{ user_info.username }}!</h1>
+<p>Username: {{ user_info.username }}</p>
+<p>Password: {{ user_info.password }}</p>
+
+<form method="post" action="{{ url_for('add_cookie') }}">
+    <label for="cookie_key">Key:</label>
+    <input type="text" id="cookie_key" name="cookie_key" required>
+    <label for="cookie_value">Value:</label>
+    <input type="text" id="cookie_value" name="cookie_value" required>
+    <label for="cookie_expiry">Expiry (seconds):</label>
+    <input type="number" id="cookie_expiry" name="cookie_expiry" required>
+    <button type="submit">Add Cookie</button>
+</form>
+
+<form method="post" action="{{ url_for('delete_cookie') }}">
+    <label for="delete_cookie_key">Delete Cookie (Key):</label>
+    <input type="text" id="delete_cookie_key" name="delete_cookie_key" required>
+    <button type="submit">Delete Cookie</button>
+</form>
+
+<form method="post" action="{{ url_for('delete_all_cookies') }}">
+    <button type="submit">Delete All Cookies</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+        <th>Expiry</th>
+        <th>Creation Time</th>
+    </tr>
+    {% for cookie in cookies %}
+    <tr>
+        <td>{{ cookie.key }}</td>
+        <td>{{ cookie.value }}</td>
+        <td>{{ cookie.expiry }}</td>
+        <td>{{ cookie.creation_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<form method="post" action="{{ url_for('logout') }}">
+    <button type="submit">Logout</button>
+</form>
+
+<h3>Change Password</h3>
+<form method="post" action="{{ url_for('change_password') }}">
+    <label for="new_password">New Password:</label>
+    <input type="password" id="new_password" name="new_password" required>
+    <button type="submit">Change Password</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link href="../static/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <h1>Todo List</h1>
+
+        <ul>
+            {% for todo in todos %}
+                <li>
+
+                        <div class="title-description">
+                            <h3 class="title-bg">{{ todo.title }}</h3>
+                            <p class="description-bg">{{ todo.description }}</p>
+
+                            {% if todo.completed %}
+                                <p class="completed-bg-true">Completed: Yes</p>
+                            {% else %}
+                                <p class="completed-bg-false">Completed: No</p>
+                            {% endif %}
+
+                        </div>
+
+                    <div class="actions">
+                        <a href="{{ url_for('edit_todo', id=todo.id) }}" class="edit-btn">Edit</a>
+                        <a href="{{ url_for('delete_todo', id=todo.id) }}" class="delete-btn">Delete</a>
+                    </div>
+
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('add_todo') }}" class="add-link">Add Todo</a>
+    </div>
+
+</body>
+</html>

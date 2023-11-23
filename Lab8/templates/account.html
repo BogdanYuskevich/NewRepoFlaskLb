@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+
+                    <h2 class="card-title text-center mb-4">Account Information</h2>
+
+                    <div class="user-info">
+                        <div class="row mb-3">
+                            <div class="col-sm-4">
+                                <strong>Username:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ current_user.username }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <strong>Email:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ current_user.email }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h4 class="card-title">Lorem Ipsum</h4>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat ultrices ligula tempor
+                        condimentum. Nulla interdum tristique diam non tempus. Donec dolor velit, volutpat eu luctus at,
+                        pretium facilisis nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. In tempor
+                        ac lorem quis sollicitudin. Pellentesque at condimentum tortor, at eleifend ex. Sed varius nibh
+                        a ex euismod, eu sodales lectus blandit. In congue non quam nec blandit. Nam dictum imperdiet
+                        risus, nec malesuada elit iaculis vitae. Donec sodales aliquet magna, et tempor libero ultrices
+                        non. Quisque ornare malesuada erat, quis molestie ligula ullamcorper ac. Donec pharetra varius
+                        est. Fusce consectetur vestibulum purus, eget finibus lacus mollis non. Interdum et malesuada
+                        fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. Integer est urna,
+                        semper eu mollis id, laoreet in ante.
+                    </p>
+
+                    <div class="text-center mt-4">
+                        <a href="#" class="btn btn-danger mr-2">Delete Account</a>
+                        <a href="#" class="btn btn-success">Edit Profile</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

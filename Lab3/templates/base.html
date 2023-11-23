@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bohdan Page</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<center>
+    <header>
+    <h1>Portfolio</h1>
+        <div class="content">
+    <ul class="nav-links">
+        <li><a href="{{url_for('page1')}}">Main page</a></li>
+        <li><a href="{{url_for('page2')}}">About me</a></li>
+        <li><a href="{{url_for('page3')}}">Contacts</a></li>
+    </ul>
+</div>
+    </header>
+</center>
+<br>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+<footer>
+        OS: {{ os_info }}<br>
+        User-Agent: {{ user_agent }}<br>
+        Time: {{ current_time }}<br>
+    </footer>
+</body>
+</html>

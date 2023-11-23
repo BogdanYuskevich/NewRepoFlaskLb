@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ordering a pizza</title>
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ccadad;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #573939;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #bad06d;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ordering a pizza</h1>
+        <form action="cgi-bin/app.py" method="post">
+            <p>Select the type of pizza:</p>
+            <input type="radio" name="pizza_type" value="Salsa"> Salsa
+            <input type="radio" name="pizza_type" value="Charbonara"> Charbonara
+            <input type="radio" name="pizza_type" value="Vega"> Vega
+            <br>
+
+            <p>Additional ingredients:</p>
+            <input type="checkbox" name="topping" value="Ananas"> Ananas
+            <input type="checkbox" name="topping" value="BlackPeper"> BlackPeper
+            <input type="checkbox" name="topping" value="Popa"> Popa
+            <br>
+
+            <p>Pizza size:</p>
+            <select name="pizza_size">
+                <option value="Small">XS</option>
+                <option value="Medium">XL</option>
+                <option value="Large">XXL</option>
+            </select>
+            <br><br>
+
+            <input type="submit" value="Замовити">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* Загальні стилі для сторінки */
+body {
+    font-family: "Roboto Slab", Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Стилі для заголовків */
+h1 {
+    font-size: 45px;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+}
+
+h2 {
+    font-size: 35px;
+    text-align: center;
+    color: #007bff;
+}
+
+/* Стилі для фото та списку контактів */
+.photo {
+    background-color: #000; /* Зміна на чорний колір */
+    background-image: url('../images/kitty.jpg');
+    background-size: cover; /* Збільшення фото на всю площу */
+    width: 450px;
+    height: 550px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+/* Стилі для списку сторінок */
+ul.nav-links {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+ul.nav-links li {
+    display: inline;
+    margin-bottom: 15px;
+}
+
+ul.nav-links li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+ul.nav-links li a:hover {
+    background-color: #0056b3;
+}
+
+
+/* Стилі для текстового блоку */
+.text-content {
+    margin: 20px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    text-align: justify;
+    color: #333;
+}

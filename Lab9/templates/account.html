@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+
+                    <h2 class="card-title">Account Information</h2>
+
+                    <div class="user-info">
+                        <center><img
+                                src="{{ url_for('static', filename='../static/profile_images/' + current_user.image_file) }}"
+                                class="rounded-circle account-image img-fluid" alt="Profile Image"></center>
+                        <p><strong>Username:</strong> {{ current_user.username }}</p>
+                        <p><strong>Email:</strong> {{ current_user.email }}</p>
+                    </div>
+
+                    <p><strong>About Me:</strong> {{ current_user.about_me or 'Not provided' }}</p>
+                    <p><strong>Last Seen:</strong> {{ current_user.last_seen.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+
+                </div>
+            </div>
+            <hr>
+
+            <h4 class="card-title">Update Account</h4>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+                    {{ form.username(class="form-control form-control-lg") }}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {{ form.email(class="form-control form-control-lg") }}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {{ form.password(class="form-control form-control-lg") }}
+                </div>
+                <div class="form-group">
+                    {{ form.about_me.label(class="form-control-label") }}
+                    {{ form.about_me(class="form-control form-control-lg") }}
+                </div>
+                <div class="form-group">
+                    <label for="profile_picture" class="form-control-label">Select Profile Picture:</label>
+                    {{ form.picture(class="form-control-file", id="profile_picture") }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>
+{% endblock %}
