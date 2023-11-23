@@ -5,25 +5,27 @@
     <link rel="stylesheet" type="text/css" href="static/style.css">
 </head>
 <body>
-<center><h1>Leave your feedback</h1></center>
-    <form method="POST">
-        {{ form.hidden_tag() }}
-        <div>
-            {{ form.name.label }}
-            {{ form.name(class="form") }}
-        </div>
-        <div>
-            {{ form.comment.label }}
-            {{ form.comment(class="form") }}
-        </div>
-        <button type="submit">Send</button>
-    </form>
+    <div class="container">
+        <h1 class="header">Leave your feedback</h1>
+        <form method="POST" class="feedback-form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label }}
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.comment.label }}
+                {{ form.comment(class="form-control") }}
+            </div>
+            <button type="submit" class="btn-submit">Send</button>
+        </form>
 
-    <h2>All feedbacks:</h2>
-    <ul>
-        {% for feedback in feedbacks %}
-            <li><strong>{{ feedback.name }}</strong>: {{ feedback.comment }}</li>
-        {% endfor %}
-    </ul>
+        <h2 class="feedback-header">All feedbacks:</h2>
+        <ul class="feedback-list">
+            {% for feedback in feedbacks %}
+                <li class="feedback-item"><strong>{{ feedback.name }}</strong>: {{ feedback.comment }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

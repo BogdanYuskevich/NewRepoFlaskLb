@@ -1,54 +1,70 @@
-body {
-    font-family: "Arial", sans-serif;
+/* Кольори */
+:root {
+    --primary-color: #61e777;
+    --secondary-color: #4ab672;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --border-color: #ccc;
 }
 
-h1 {
-    font-size: 24px;
-    color: #333;
-    margin: 20px 0;
-}
-
-form {
-    max-width: 400px;
+/* Загальні стилі для контейнера */
+.container {
+    max-width: 600px;
     margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    /* Градієнтний фон */
+    background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
 }
 
-form input[type="text"],
-form textarea {
+/* Стилі для заголовків */
+.header,
+.feedback-header {
+    text-align: center;
+}
+
+/* Стилі для форми та її елементів */
+.feedback-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
 }
 
-form button {
-    background-color: #007bff;
-    color: #fff;
+.btn-submit {
     padding: 10px 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: #fff;
     cursor: pointer;
 }
 
-h2 {
-    font-size: 20px;
-    margin: 20px 0;
+.btn-submit:hover {
+    background-color: var(--secondary-color);
 }
 
-ul {
+/* Стилі для списку відгуків */
+.feedback-list {
     list-style: none;
     padding: 0;
 }
 
-li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-li strong {
-    color: #007bff;
+.feedback-item {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
 }
